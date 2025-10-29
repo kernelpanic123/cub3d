@@ -6,12 +6,15 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/29 02:24:10 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/29 02:45:05 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
+# define CUB3D_H
 
-#define CUB3D_H
+# define TRUE 0
+# define FALSE 1
+
 
 #endif
