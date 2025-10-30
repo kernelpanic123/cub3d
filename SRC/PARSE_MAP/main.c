@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/30 19:36:10 by abtouait         ###   ########.fr       */
+/*   Created: 2025/10/30 19:31:04 by abtouait          #+#    #+#             */
+/*   Updated: 2025/10/30 19:34:24 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../cub3D.h"
 
-# include "SRC/GNL/get_next_line.h"
-# include "mlx/mlx.h"
+int main(void)
+{
+	int		fd;
+	char	*line;
 
-# define TRUE 0
-# define FALSE 1
-
-
-#endif
+	fd = open("test.txt", O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		printf("%s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
+}

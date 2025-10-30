@@ -6,16 +6,16 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/10/30 18:28:10 by abtouait         ###   ########.fr        #
+#    Updated: 2025/10/30 19:32:04 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-SRC =	SCR/GNL/get_next_line_utils.c\
-		SCR/GNL/get_next_line.c\
+SRC =	SRC/GNL/get_next_line_utils.c\
+		SRC/GNL/get_next_line.c\
+		SRC/PARSE_MAP/main.c
 		
-
 CFLAGS = -Wall -Wextra -Werror
 
 MLX_LIB = mlx/libmlx.a
