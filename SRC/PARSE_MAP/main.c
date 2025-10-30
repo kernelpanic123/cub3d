@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:31:04 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/30 20:19:46 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/31 00:05:43 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int main(void)
 	char	*line;
 
 	fd = open("test.txt", O_RDONLY);
-	// if (!fd)
-	printf("%d\n",fd);
 	while (1)
 	{
 		line = get_next_line(fd);
