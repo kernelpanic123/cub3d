@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/10/30 19:32:04 by abtouait         ###   ########.fr        #
+#    Updated: 2025/10/30 19:58:45 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/GNL/get_next_line.c\
-		SRC/PARSE_MAP/main.c
+		SRC/PARSE_MAP/main.c\
 		
 CFLAGS = -Wall -Wextra -Werror
 
@@ -36,6 +36,8 @@ $(NAME): $(OBJ) $(MLX_LIB)
 
 clean:
 	rm -f *.o
+	rm -f SRC/GNL/*.o
+	rm -f SRC/PARSE_MAP/*.o
 	make -C mlx clean
 
 fclean: clean
