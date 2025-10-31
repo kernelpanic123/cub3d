@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/30 19:36:10 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:58:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@
 # define TRUE 0
 # define FALSE 1
 
+//PARSE_MAP
+int check_extension(char *str);
+
+//UTILS
 
 #endif
