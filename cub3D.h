@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 14:29:57 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/31 17:37:49 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,20 @@
 # define TRUE 0
 # define FALSE 1
 
+typedef struct s_game
+{
+	char **map;
+	
+} t_game;
+
+
 //PARSE_MAP
-int check_extension(char *str);
-int open_map(char *str);
-int smol_parse(int argc, char **argv);
+int		check_extension(char *str);
+int		open_map(char *str);
+int		smol_parse(int argc, char **argv);
+int		count_lines(char *file);
+char	**parse_map(char *file);
+void	init_var_struct(t_game *data, char **argv);
 
 //UTILS
 

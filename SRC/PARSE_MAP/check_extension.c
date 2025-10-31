@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:08:03 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 14:37:57 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/31 15:52:39 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int open_map(char *str)
 	int fd;
 	
 	fd = open(str, O_RDONLY);
-	if (fd == -1)
+	if (fd < 0)
 		return (FALSE);
 	return (TRUE);
 }
@@ -26,6 +26,8 @@ int check_extension(char *str)
 {
 	int i;
 
+	if (str == NULL)
+		return (FALSE);
 	i = ft_strlen(str);
 	i--;
 	if (str[i] != 'b')

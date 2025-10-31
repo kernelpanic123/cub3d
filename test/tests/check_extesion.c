@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 00:21:09 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 13:59:42 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/10/31 15:47:58 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int main(void)
     RUN_TEST(test_multiple_dots_valid);
     RUN_TEST(test_multiple_dots_invalid);
     RUN_TEST(test_empty_string);
-    //RUN_TEST(test_null_pointer);
+    RUN_TEST(test_null_pointer);
     return UNITY_END();
 }
