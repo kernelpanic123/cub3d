@@ -6,13 +6,13 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:53:23 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 17:54:07 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/01 01:45:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D"
 
-int parse_nbr_player(char **map)
+int parse_nbr_player()
 {
 	int i;
 

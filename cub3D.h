@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 17:37:49 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/01 02:07:24 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@
 
 typedef struct s_game
 {
-	char **map;
+	char **file;
+	char *north;
+	char *west;
+	char *south;
+	char *east;
 	
 } t_game;
 
@@ -33,6 +37,10 @@ int		smol_parse(int argc, char **argv);
 int		count_lines(char *file);
 char	**parse_map(char *file);
 void	init_var_struct(t_game *data, char **argv);
+void	get_north(t_game *data);
+void	get_west(t_game *data);
+void	get_south(t_game *data);
+void	get_east(t_game *data);
 
 //UTILS
 

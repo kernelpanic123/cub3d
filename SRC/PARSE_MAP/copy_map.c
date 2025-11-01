@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 17:51:01 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/01 02:05:55 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,19 @@ char	**parse_map(char *file)
 	close(fd);
 	return (arrays);
 }
-/*int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	t_game	data;
-	int		i;
 	(void)argc;
 	
-	i = 0;
 	init_var_struct(&data, argv);
-	while (data.map[i] != NULL)
-	{
-		printf("%s", data.map[i]);
-		i++;
-	}
-}*/
+	get_north(&data);
+	get_east(&data);
+	get_south(&data);
+	get_west(&data);
+	printf("%s", data.north);
+	printf("%s", data.south);
+	printf("%s", data.west);
+	printf("%s", data.east);
+	
+}
