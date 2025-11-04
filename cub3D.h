@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/01 02:07:24 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/04 21:04:45 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_game
 	char *west;
 	char *south;
 	char *east;
+	char *floor;
+	char *ceiling;
+	char **map;
 	
 } t_game;
 
@@ -41,6 +44,11 @@ void	get_north(t_game *data);
 void	get_west(t_game *data);
 void	get_south(t_game *data);
 void	get_east(t_game *data);
+void	get_ceiling(t_game *data);
+void	get_floor(t_game *data);
+int count_line_map(t_game *data);
+int	char_map(char *line);
+void get_map(t_game *data);
 
 //UTILS
 

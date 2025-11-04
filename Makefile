@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/01 02:10:53 by abtouait         ###   ########.fr        #
+#    Updated: 2025/11/04 21:09:54 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/PARSE_MAP/init_struct.c\
 		SRC/PARSE_MAP/copy_map.c\
 		SRC/PARSE_MAP/get_cardinals.c\
+		SRC/PARSE_MAP/get_fc.c\
 		
 		
 CFLAGS = -Wall -Wextra -Werror
