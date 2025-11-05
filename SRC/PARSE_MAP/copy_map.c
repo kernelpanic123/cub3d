@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/05 02:42:41 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/05 02:52:59 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,18 @@ void get_map(t_game *data)
 	while (data->file[i] != NULL)
 	{
 		if (char_map(data->file[i]) == TRUE)
-			data->map[j] = ft_strdup(data->file[i]);
+		{
+			while (data->file[i] != NULL)
+			{
+				data->map[j] = ft_strdup(data->file[i]);
+				i++;
+				j++;
+			}
+			data->map[j] = NULL;
+			return ;
+		}
 		i++;
-		j++;
 	}
-	data->map[j] = NULL;
 }
 
 int main(int argc, char **argv)
