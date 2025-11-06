@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/05 02:52:59 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 00:04:50 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,80 +60,48 @@ char	**parse_map(char *file)
 	close(fd);
 	return (arrays);
 }
-int count_line_map(t_game *data)
+int	search_map_start(t_game *data)
 {
 	int i;
-	int len;
-
-	i = 0;
-	len = 0;
-	while (data->file[i] != NULL)
-	{
-		if (char_map(data->file[i]) == TRUE)
-		{
-			while (data->file[i] != NULL)
-			{
-				i++;
-				len++;
-			}
-			return (len);
-		}
-		i++;
-	}
-	return (len);
-}
-
-int	char_map(char *line)
-{
-	int i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'N' && line[i] != 'E' && line[i] != 'S' && line[i] != ' ' && line[i] != '\n')
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-void get_map(t_game *data)
-{
-	int i;
-	int len;
 	int j;
 
 	i = 0;
-	j = 0;
-	len = count_line_map(data);
-	data->map = malloc(sizeof(char *) * (len + 1));
 	while (data->file[i] != NULL)
 	{
-		if (char_map(data->file[i]) == TRUE)
-		{
-			while (data->file[i] != NULL)
-			{
-				data->map[j] = ft_strdup(data->file[i]);
-				i++;
-				j++;
-			}
-			data->map[j] = NULL;
-			return ;
-		}
+		j = 0;
+		while (data->file[i][j] == ' ')
+			j++;
+		if (data->file[i][j] == '1' || data->file[i][j] == '0')
+			return (i);
 		i++;
 	}
+	return (-1);
 }
-
-int main(int argc, char **argv)
+void	get_map(t_game *data)
 {
-	t_game	data;
-	(void)argc;
+	int	i;
+	int	len;
 	
-	init_var_struct(&data, argv);
-	get_map(&data);
-	int i = 0;
-	while (data.map[i] != NULL)
+	len = 0;
+	i = search_map_start(data);
+	if (i == -1)
 	{
-		printf("%s", data.map[i]);
+		printf("ERROR MAP\n");
+		return ;
+	}
+	while (data->file[i] != NULL)
+	{
+		len++;
 		i++;
 	}
+	data->map = malloc(sizeof(char *) * (len + 1));
+	i = search_map_start(data);
+	len = 0;
+	while (data->file[i] != NULL)
+	{
+		data->map[len] = ft_strdup(data->file[i]);
+		i++;
+		len++;
+	}
+	data->map[len] = NULL;
 }

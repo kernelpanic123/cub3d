@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/04 21:04:45 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 00:05:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ void	get_south(t_game *data);
 void	get_east(t_game *data);
 void	get_ceiling(t_game *data);
 void	get_floor(t_game *data);
-int count_line_map(t_game *data);
-int	char_map(char *line);
-void get_map(t_game *data);
+int		search_map_start(t_game *data);
+void	get_map(t_game *data);
 
 //UTILS
 
