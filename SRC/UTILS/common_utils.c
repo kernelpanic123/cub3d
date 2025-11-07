@@ -6,9 +6,18 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:23:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/31 13:30:27 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 19:29:08 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
+int strlen_array(char **array)
+{
+	int i;
+	
+	i = 0;
+	while (array[i] != NULL)
+		i++;
+	return (i);
+}

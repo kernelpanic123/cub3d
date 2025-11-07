@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 00:05:17 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 21:38:39 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ void	get_ceiling(t_game *data);
 void	get_floor(t_game *data);
 int		search_map_start(t_game *data);
 void	get_map(t_game *data);
+int		check_char_map(t_game *data);
+int		parse_player(t_game *data);
+int		strlen_array(char **array);
+int		closed_line(char *line);
+int		check_full_line(char *line);
+int		check_closed_map(t_game *data);
+int		medium_parse(t_game *data, int argc, char **argv);
 
 //UTILS
 
