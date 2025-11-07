@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 21:39:08 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 21:48:29 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,4 @@ void	get_map(t_game *data)
 		len++;
 	}
 	data->map[len] = NULL;
-}
-int main(int argc, char **argv)
-{
-	t_game	data;
-	(void)argc;
-
-	init_var_struct(&data, argv);
-	get_map(&data);
-	medium_parse(&data, argc, argv);
 }

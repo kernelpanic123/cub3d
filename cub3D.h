@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 21:38:39 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/07 22:26:58 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define TRUE 0
 # define FALSE 1
+# define IMG_SIZE 64
 
 typedef struct s_game
 {
@@ -29,6 +30,11 @@ typedef struct s_game
 	char *floor;
 	char *ceiling;
 	char **map;
+	void	*win_mlx_ptr;
+	void	*mlx_ptr;
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_player;
 	
 } t_game;
 
@@ -50,12 +56,12 @@ int		search_map_start(t_game *data);
 void	get_map(t_game *data);
 int		check_char_map(t_game *data);
 int		parse_player(t_game *data);
-int		strlen_array(char **array);
 int		closed_line(char *line);
 int		check_full_line(char *line);
 int		check_closed_map(t_game *data);
 int		medium_parse(t_game *data, int argc, char **argv);
 
 //UTILS
+int		strlen_array(char **array);
 
 #endif

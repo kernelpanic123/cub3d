@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/07 21:39:30 by abtouait         ###   ########.fr        #
+#    Updated: 2025/11/07 22:49:01 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/PARSE_MAP/get_fc.c\
 		SRC/PARSE_MAP/check_map_closed.c\
 		SRC/PARSE_MAP/parse.c\
+		SRC/WINDOW/window.c
 		
 		
 CFLAGS = -Wall -Wextra -Werror
@@ -47,6 +48,8 @@ clean:
 	rm -f *.o
 	rm -f SRC/GNL/*.o
 	rm -f SRC/PARSE_MAP/*.o
+	rm -f SRC/WINDOW/*.o
+	rm -f SRC/UTILS/*.o
 	make -C mlx clean
 
 fclean: clean
