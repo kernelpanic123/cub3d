@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 22:26:58 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/10 21:24:53 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ typedef struct s_game
 	char *floor;
 	char *ceiling;
 	char **map;
-	void	*win_mlx_ptr;
-	void	*mlx_ptr;
-	void	*img_wall;
-	void	*img_floor;
-	void	*img_player;
 	
 } t_game;
 
@@ -60,6 +55,10 @@ int		closed_line(char *line);
 int		check_full_line(char *line);
 int		check_closed_map(t_game *data);
 int		medium_parse(t_game *data, int argc, char **argv);
+int		find_x_player(t_game *data);
+int	find_y_player(t_game *data);
+void	flood_fill(char **map, int y, int x);
+void flood_map(t_game *data);
 
 //UTILS
 int		strlen_array(char **array);

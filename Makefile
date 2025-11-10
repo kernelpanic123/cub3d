@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/07 22:49:01 by abtouait         ###   ########.fr        #
+#    Updated: 2025/11/10 21:31:33 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,14 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/PARSE_MAP/get_fc.c\
 		SRC/PARSE_MAP/check_map_closed.c\
 		SRC/PARSE_MAP/parse.c\
-		SRC/WINDOW/window.c
+		SRC/PARSE_MAP/flood_fill.c\
 		
 		
 CFLAGS = -Wall -Wextra -Werror
 
 MLX_LIB = mlx/libmlx.a
 
-#-fsanitize=address-g3
+#-fsanitize=address -g3
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,7 +42,7 @@ $(MLX_LIB):
 	cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(MLX_LIB)
-	cc $(OBJ) -Lmlx -lmlx -lXext -lX11 -lm -o $(NAME)
+	cc $(OBJ) -fsanitize=address -g3 -Lmlx -lmlx -lXext -lX11 -lm -o $(NAME)
 
 clean:
 	rm -f *.o
