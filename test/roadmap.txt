@@ -1,0 +1,135 @@
+========= ROADMAP COMPLÈTE POUR CUB3D (adaptée à ta struct t_ray) =========
+
+ETAPE 1 — INITIALISATION DU JOUEUR
+----------------------------------
+1. Trouver la position du joueur dans la map (cellule X,Y).
+2. Placer le joueur au centre de la case : posx = x + 0.5 ; posy = y + 0.5.
+3. Définir la direction (dirx, diry) selon N, S, E, W.
+4. Définir le plan caméra (planx, plany) perpendiculaire à la direction.
+
+Objectif : le joueur sait où il est et où il regarde.
+
+--------------------------------------------------------------------------
+
+ETAPE 2 — ENVOYER UN RAYON PAR COLONNE DE L'ÉCRAN
+-------------------------------------------------
+1. Calculer camerax : de -1 (gauche) à 1 (droite).
+2. Calculer la direction du rayon : raydir = dir + plane * camerax.
+3. Déterminer dans quelle cellule de la map on commence : mapx = posx, mapy = posy.
+4. Calculer deltadistx / deltadisty (distance entre chaque mur vertical/horizontal).
+5. Calculer sidedistx / sidedisty (première intersection murale).
+6. Définir stepx / stepy selon la direction du rayon.
+
+Objectif : le rayon est prêt à être lancé dans la grille.
+
+--------------------------------------------------------------------------
+
+ETAPE 3 — DDA : TROUVER LE MUR TOUCHÉ
+-------------------------------------
+1. Comparer sidedistx et sidedisty.
+2. Si sidedistx < sidedisty → avancer en X ; sinon → avancer en Y.
+3. Ajouter deltadistx ou deltadisty.
+4. Mettre à jour mapx ou mapy.
+5. Répéter jusqu’à ce que la case touchée soit un mur ('1').
+6. Définir side : 0 = mur vertical, 1 = mur horizontal.
+
+Objectif : savoir où le rayon a touché le mur.
+
+--------------------------------------------------------------------------
+
+ETAPE 4 — CALCULER LA DISTANCE REELLE AU MUR
+--------------------------------------------
+1. Utiliser la formule selon side.
+2. Obtenir perpwalldist, distance compensée (pas de fisheye).
+
+Objectif : distance correcte pour calculer la hauteur du mur.
+
+--------------------------------------------------------------------------
+
+ETAPE 5 — CALCULER LA HAUTEUR DU MUR
+------------------------------------
+1. lineheight = hauteur_fenetre / perpwalldist.
+2. drawstart = point de début de la colonne.
+3. drawend = point de fin de la colonne.
+
+Objectif : savoir exactement où tracer le mur sur l'écran.
+
+--------------------------------------------------------------------------
+
+ETAPE 6 — TEXTURER LE MUR
+-------------------------
+1. Choisir la texture selon la direction du mur touché :
+   - Nord / Sud / Est / Ouest.
+2. Déterminer quelle colonne de la texture lire.
+3. Mapper la texture verticalement sur la colonne lineheight.
+
+Objectif : dessiner un mur réaliste.
+
+--------------------------------------------------------------------------
+
+ETAPE 7 — REPETER POUR CHAQUE COLONNE DE L'ÉCRAN
+-------------------------------------------------
+Dans ta struct : r->x
+Boucle de x = 0 jusqu'à screen_width - 1 :
+   - envoyer un rayon
+   - appliquer DDA
+   - calculer distance
+   - calculer hauteur
+   - texturer
+   - dessiner la colonne
+
+Objectif : construire l’image finale en entier.
+
+--------------------------------------------------------------------------
+
+ETAPE 8 — BONUS : MINIMAP ET RAYONS (DEBUG)
+-------------------------------------------
+1. Dessiner la grille de la map.
+2. Dessiner la position du joueur.
+3. Visualiser les rayons en lignes.
+
+--------------------------------------------------------------------------
+
+ETAPE 9 — MOUVEMENT ET ROTATION
+-------------------------------
+1. W/S → avancer/reculer selon dirx/diry.
+2. A/D → strafe latéral selon le plan caméra.
+3. Flèches gauche/droite → rotation :
+   - rotation du vecteur direction
+   - rotation du plan caméra
+4. Collisions → vérifier map[prochain_y][prochain_x] != '1'.
+
+Objectif : permettre au joueur de se déplacer correctement.
+
+--------------------------------------------------------------------------
+
+ETAPE 10 — DESSINER CEILING / FLOOR
+-----------------------------------
+1. Remplir la moitié haute de la fenêtre avec la couleur ceiling.
+2. Remplir la moitié basse avec la couleur floor.
+
+--------------------------------------------------------------------------
+
+ETAPE 11 — CLEAN, NORME, PROTECTION
+-----------------------------------
+- free de tout
+- protection malloc
+- règles de norme
+- interdiction des leaks
+- séparation des fonctions
+
+==========================================================================
+
+RESUME SIMPLE DU RAYCASTING :
+-----------------------------
+1. Init joueur (position + direction)
+2. Pour chaque colonne, calculer raydir
+3. Lancer DDA pour trouver le mur
+4. Calculer distance
+5. Calculer hauteur
+6. Texturer la colonne
+7. Afficher
+
+==========================================================================
+
+FIN DE LA ROADMAP.

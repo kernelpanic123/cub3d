@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:53:23 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/10 21:33:16 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/13 07:24:14 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,38 @@ void flood_map(t_game *data)
 	x_player = find_x_player(data);
 	flood_fill(data->map, y_player, x_player);
 }
-int main(int argc, char **argv)
+void replace_space(t_game *data)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (data->map[i] != NULL)
+	{
+		j = 0;
+		while (data->map[i][j] != '\0')
+		{
+			if (data->map[i][j] == ' ')
+				data->map[i][j] = '0';
+			j++;
+		}
+		i++;
+	}
+}
+/*int main(int argc, char **argv)
 {
 	t_game	data;
 	(void) argc;
 	init_var_struct(&data, argv);
 	get_map(&data);
-	flood_map(&data);
+	replace_space(&data);
+	get_max_len(&data);
+	equalize_map(&data);
 	int i = 0;
 	while (data.map[i] != NULL)
 	{
-		printf("%s\n", data.map[i]);
+		printf("%s", data.map[i]);
 		i++;
 	}
 	
-}
+}*/
