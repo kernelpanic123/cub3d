@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 19:23:36 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/22 16:10:03 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:44:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,7 @@ void get_ceiling(t_game *data)
 	}
 }
 
-int main(int argc, char **argv)
-{
-	t_game	data;
-	char **test;
-	int i;
 
-	i = 0;
-	(void) argc;
-	init_var_struct(&data, argv);
-	get_ceiling(&data);
-	get_floor(&data);
-	test = ft_split(data.floor, ',');
-	while(test[i])
-	{
-		printf("%s\n", test[i]);
-		i++;
-	}
-	
-}
 int	rgb_to_int(char *rgb)
 {
 	char	**rgb_values;
@@ -77,7 +59,7 @@ int	rgb_to_int(char *rgb)
 	result = ft_atoi(rgb_values[0]) << 16
 		| ft_atoi(rgb_values[1]) << 8
 		| ft_atoi(rgb_values[2]);
-	free_all(rgb_values);
+	free_array_simple(rgb_values);
 	return (result);
 }
 
@@ -86,7 +68,7 @@ int valid_rgb_floor(t_game *data)
 	int i;
 	int j;
 	char **array;
-	
+
 	i = 0;
 	j = 0;
 	array = ft_split(data->floor, ',');
@@ -94,14 +76,52 @@ int valid_rgb_floor(t_game *data)
 		return (FALSE);
 	while (array[i] != NULL)
 	{
-		while (array[i][j] && array[i][j] == ' ')
+		while ((array[i][j] && array[i][j] == ' ') || ft_isdigit(array[i][j]))
 			j++;
-		if (array[i][j] == '\0' || !ft_isdigit(array[i][j]))
-			free_array(array, FALSE);
+		if (array[i][j] == '\0' || ft_isdigit(array[i][j]))
+			return (free_array(array, FALSE));
 		if (ft_atoi(&array[i][j]) < 0 || ft_atoi(&array[i][j]) > 255)
-			free_array(array, FALSE);
+			return (free_array(array, FALSE));
 		i++;
 		j = 0;
 	}
 	return (free_array(array, TRUE));
 }
+int valid_rgb_ceiling(t_game *data)
+{
+	int i;
+	int j;
+	char **array;
+
+	i = 0;
+	j = 0;
+	array = ft_split(data->ceiling, ',');
+	if (strlen_array(array) != 3)
+		return (FALSE);
+	while (array[i] != NULL)
+	{
+		while ((array[i][j] && array[i][j] == ' ') || ft_isdigit(array[i][j]))
+			j++;
+		if (array[i][j] == '\0' || ft_isdigit(array[i][j]))
+			return (free_array(array, FALSE));
+		if (ft_atoi(&array[i][j]) < 0 || ft_atoi(&array[i][j]) > 255)
+			return (free_array(array, FALSE));
+		i++;
+		j = 0;
+	}
+	return (free_array(array, TRUE));
+}
+
+
+// int main(int argc, char **argv)
+// {
+// 	t_game	data;
+// 	char **test;
+// 	int i;
+
+// 	i = 0;
+// 	(void) argc;
+// 	init_var_struct(&data, argv);
+// 	get_floor(&data);
+// 	printf("%d\n", valid_rgb_floor(&data));
+// }

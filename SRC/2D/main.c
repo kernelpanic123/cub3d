@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/22 13:47:07 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 17:54:30 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,32 @@ void	initialize_window(t_game *data)
 		&data->screen.endian);
 }
 
-// int main(int argc, char **argv)
-// {
-// 	t_game  g;
-// 	t_ray   r;
+int main(int argc, char **argv)
+{
+	t_game  g;
+	t_ray   r;
 
-// 	(void) argc;
-// 	g.ray = &r;
-// 	init_var_struct(&g, argv);
-// 	get_map(&g);
-// 	replace_space(&g);
-// 	get_max_len(&g);
-// 	equalize_map(&g);
-// 	initialize_window(&g);
-// 	g.screen.width = g.screen_w;
-// 	g.screen.height = g.screen_h;
-// 	load_texture(&g, &g.textures[0], "./SRC/img/sud.xpm"); // NORTH
-// 	load_texture(&g, &g.textures[1], "./SRC/img/wall.xpm"); // SOUTH
-// 	load_texture(&g, &g.textures[2], "./SRC/img/wall.xpm");  // WEST
-// 	load_texture(&g, &g.textures[3], "./SRC/img/wall.xpm");  // EAST
-	
-// 	init_player(&r, &g);
-// 	mlx_hook(g.mlx_win, 2, 1L << 0, wich_input_press, &g);
-// 	mlx_hook(g.mlx_win, 3, 1L << 1, wich_key_release, &g);
-// 	mlx_loop_hook(g.mlx, render, &g);
-// 	mlx_loop(g.mlx);
-// 	return (0);
-// }
+	(void) argc;
+	g.ray = &r;
+	init_var_struct(&g, argv);
+	get_map(&g);
+	get_floor(&g);
+	get_ceiling(&g);
+	parse_rgb(&g);
+	replace_space(&g);
+	get_max_len(&g);
+	equalize_map(&g);
+	initialize_window(&g);
+	g.screen.width = g.screen_w;
+	g.screen.height = g.screen_h;
+	load_texture(&g, &g.textures[0], "./SRC/img/sud.xpm"); // NORTH
+	load_texture(&g, &g.textures[1], "./SRC/img/wall.xpm"); // SOUTH
+	load_texture(&g, &g.textures[2], "./SRC/img/wall.xpm");  // WEST
+	load_texture(&g, &g.textures[3], "./SRC/img/wall.xpm");  // EAST
+	init_player(&r, &g);
+	mlx_hook(g.mlx_win, 2, 1L << 0, wich_input_press, &g);
+	mlx_hook(g.mlx_win, 3, 1L << 1, wich_key_release, &g);
+	mlx_loop_hook(g.mlx, render, &g);
+	mlx_loop(g.mlx);
+	return (0);
+}

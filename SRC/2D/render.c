@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:09:46 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/21 10:41:30 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:37:24 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	draw_wall_textured(t_game *data, t_ray *r)
 	int			texy;
 	int			color;
 	t_texture	*tex;
-
+	
 	tex = &data->textures[r->texture_id];
 	y = 0;
 	while (y < r->drawstart)
 	{
-		my_pixel_put(&data->screen, r->x, y, 0xFCFF00); // Plafond
+		my_pixel_put(&data->screen, r->x, y, data->c_color); // Plafond
 		y++;
 	}
 	while (y <= r->drawend)
@@ -75,7 +75,7 @@ void	draw_wall_textured(t_game *data, t_ray *r)
 		y++;
 	}
 	while (y++ < data->screen_h)
-		my_pixel_put(&data->screen, r->x, y, 0x800080); // Sol
+		my_pixel_put(&data->screen, r->x, y, data->f_color); // Sol
 }
 
 

@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/22 15:45:21 by abtouait         ###   ########.fr        #
+#    Updated: 2025/11/24 17:41:28 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,11 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/2D/raycast.c\
 		SRC/2D/render.c\
 		SRC/2D/main.c\
-		UTILS/utils_rgb.c\
+		SRC/UTILS/utils_rgb.c\
+		SRC/PARSE_MAP/exit_clean.c
 		
 		
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 
 MLX_LIB = mlx/libmlx.a
 

@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/22 16:14:15 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:44:39 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ typedef struct s_game
 	int			right_key;
 	t_ray		*ray;
 	t_texture	textures[4];
-	
+	int			f_color;
+	int			c_color;
 } t_game;
 
 typedef struct s_ray
@@ -115,6 +116,8 @@ void	get_south(t_game *data);
 void	get_east(t_game *data);
 void	get_ceiling(t_game *data);
 void	get_floor(t_game *data);
+int		rgb_to_int(char *rgb);
+int		parse_rgb(t_game *data);
 int		search_map_start(t_game *data);
 void	get_map(t_game *data);
 int		check_char_map(t_game *data);
@@ -140,6 +143,7 @@ char	*ft_substr(char *s, int start, int len);
 //utils_rgb
 int	ft_isdigit(int c);
 int free_array(char **array, int s);
+void	free_array_simple(char **array);
 int	ft_atoi(char *str);
 
 //handle key
@@ -179,5 +183,8 @@ void	calculate_texture_coords(t_game *data, t_ray *r);
 void	draw_wall_textured(t_game *data, t_ray *r);
 void	engine_3d(t_game *g, t_ray *r);
 int		render(t_game *g);
+
+//parse
+int exit_clean(t_game *data);
 
 #endif

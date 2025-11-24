@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:02:38 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/21 10:41:20 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 18:14:47 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int wich_input_press(int keysim, t_game *data)
 {
 	if (keysim == XK_Escape)
 	{
-		//free plus tard
+		exit_clean(data);
 		exit(1);
 	}
 	if (keysim == XK_w)

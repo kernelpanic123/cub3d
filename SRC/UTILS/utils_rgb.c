@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:37:17 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/22 16:06:24 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:06:19 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
-		return (1);
-	else
-	{
 		return (0);
-	}
+	else
+		return (1);
 }
 int	free_array(char **array, int s)
 {
@@ -33,6 +31,18 @@ int	free_array(char **array, int s)
 	}
 	free(array);
 	return (s);
+}
+void	free_array_simple(char **array)
+{
+	int i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 int	ft_atoi(char *str)
 

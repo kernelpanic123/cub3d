@@ -6,11 +6,23 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:23:03 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 21:38:05 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:13:47 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
+
+int parse_rgb(t_game *data)
+{
+	if (valid_rgb_ceiling(data) == 0 && valid_rgb_floor(data) == 0)
+	{
+		data->f_color = rgb_to_int(data->floor);
+		data->c_color = rgb_to_int(data->ceiling);
+		return (TRUE);
+	}
+	else
+		return (FALSE);
+}
 
 int medium_parse(t_game *data, int argc, char **argv)
 {
@@ -36,3 +48,4 @@ int medium_parse(t_game *data, int argc, char **argv)
 	}
 	return (TRUE);
 }
+
