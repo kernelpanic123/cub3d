@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/15 10:07:18 by abtouait         ###   ########.fr        #
+#    Updated: 2025/11/22 15:45:21 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,16 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/PARSE_MAP/parse.c\
 		SRC/PARSE_MAP/flood_fill.c\
 		SRC/PARSE_MAP/equalize_map.c\
-		SRC/2D/window.c\
-		SRC/2D/rayon.c\
+		SRC/2D/handle_key.c\
+		SRC/2D/draw.c\
+		SRC/2D/init_pos.c\
+		SRC/2D/raycast.c\
+		SRC/2D/render.c\
+		SRC/2D/main.c\
+		UTILS/utils_rgb.c\
 		
 		
-		
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
 MLX_LIB = mlx/libmlx.a
 
@@ -54,6 +58,7 @@ clean:
 	rm -f SRC/PARSE_MAP/*.o
 	rm -f SRC/WINDOW/*.o
 	rm -f SRC/UTILS/*.o
+	rm -f SRC/2D/*.o
 	make -C mlx clean
 
 fclean: clean
