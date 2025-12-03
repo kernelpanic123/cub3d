@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 01:47:41 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/04 19:15:27 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:27:22 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void get_north(t_game *data)
 {
 	int i;
+	int j;
 
 	i = 0;
-	while (data->file[i] != NULL)
+	while (data->file != NULL)
 	{
-		if (data->file[i][0] == 'N')
-			data->north = ft_strdup(data->file[i]);
+		j = 0;
+		while (data->file[i][j] == ' ')
+			j++;
+		if (data->file[i][j] == 'N')
+			data->north = ft_strdup(data->file[i][j]);
 		i++;
 	}
 }

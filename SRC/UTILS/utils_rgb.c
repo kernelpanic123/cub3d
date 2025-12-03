@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:37:17 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 13:06:19 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:34:32 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	free_array_simple(char **array)
 	free(array);
 }
 int	ft_atoi(char *str)
-
 {
 	int	nombre;
 	int	signe;

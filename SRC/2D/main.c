@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 17:54:30 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:27:36 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	initialize_window(t_game *data)
 
 int main(int argc, char **argv)
 {
-	t_game  g;
-	t_ray   r;
+	t_game	g;
+	t_ray	r;
 
 	(void) argc;
-	g.ray = &r;
 	init_var_struct(&g, argv);
+	g.ray = &r;
 	get_map(&g);
 	get_floor(&g);
 	get_ceiling(&g);

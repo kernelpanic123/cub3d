@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:23:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/22 13:50:45 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/25 13:38:07 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,18 @@ char	*ft_substr(char *s,int start, int len)
 	}
 	str[i] = '\0';
 	return (str);
+}
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*byte;
+	size_t			i;
+
+	byte = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		byte[i] = c;
+		i++;
+	}
+	return (s);
 }

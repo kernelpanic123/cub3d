@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:09:46 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 13:37:24 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:37:13 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	calcul_texture_id(t_ray *r)
 	if (r->side == 0)
 	{
 		if (r->stepx > 0)
-			r->texture_id = 3; // EAST
+			r->texture_id = 3; //est
 		else
-			r->texture_id = 2; // WEST
+			r->texture_id = 2; //ouest
 	}
 	else
 	{
 		if (r->stepy > 0)
-			r->texture_id = 1; // SOUTH
+			r->texture_id = 1; //sud
 		else
-			r->texture_id = 0; // NORTH
+			r->texture_id = 0; //nord
 	}
 }
 
@@ -36,17 +36,14 @@ void	calculate_texture_coords(t_game *data, t_ray *r)
 
 	calcul_texture_id(r);
 	tex = &data->textures[r->texture_id];
-	
 	if (r->side == 0)
 		r->wallx = r->posy + r->perpwalldist * r->raydiry;
 	else
 		r->wallx = r->posx + r->perpwalldist * r->raydirx;
 	r->wallx -= floor(r->wallx);
-	
 	r->texx = (int)(r->wallx * (double)tex->width);
 	if ((r->side == 0 && r->raydirx > 0) || (r->side == 1 && r->raydiry < 0))
 		r->texx = tex->width - r->texx - 1;
-	
 	r->step = 1.0 * tex->height / r->lineheight;
 	r->texpos = (r->drawstart - data->screen_h / 2 + r->lineheight / 2) * r->step;
 }
@@ -61,7 +58,7 @@ void	draw_wall_textured(t_game *data, t_ray *r)
 	y = 0;
 	while (y < r->drawstart)
 	{
-		my_pixel_put(&data->screen, r->x, y, data->c_color); // Plafond
+		my_pixel_put(&data->screen, r->x, y, data->c_color); //plafond
 		y++;
 	}
 	while (y <= r->drawend)
@@ -75,7 +72,7 @@ void	draw_wall_textured(t_game *data, t_ray *r)
 		y++;
 	}
 	while (y++ < data->screen_h)
-		my_pixel_put(&data->screen, r->x, y, data->f_color); // Sol
+		my_pixel_put(&data->screen, r->x, y, data->f_color); //sol
 }
 
 

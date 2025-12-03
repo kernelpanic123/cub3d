@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 14:44:39 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:03:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void	get_max_len(t_game *data);
 int		strlen_array(char **array);
 char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, int start, int len);
+void	*ft_memset(void *s, int c, size_t n);
 
 //utils_rgb
 int	ft_isdigit(int c);
@@ -186,5 +187,6 @@ int		render(t_game *g);
 
 //parse
 int exit_clean(t_game *data);
+void exit_clean_char(t_game *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 21:48:29 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:46:56 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	get_map(t_game *data)
 	i = search_map_start(data);
 	if (i == -1)
 	{
-		printf("ERROR MAP\n");
+		printf("ERROR MAP d\n");
 		return ;
 	}
 	while (data->file[i] != NULL)
