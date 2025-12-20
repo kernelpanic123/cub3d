@@ -1,7 +1,0 @@
-{
-	"cmake.ignoreCMakeListsMissing": true,
-	"files.associations": {
-		"cmath": "c",
-		"cub3d.h": "c"
-	}
-}
