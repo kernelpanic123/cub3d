@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/11/24 17:41:28 by abtouait         ###   ########.fr        #
+#    Updated: 2025/12/22 10:42:09 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,13 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/2D/main.c\
 		SRC/UTILS/utils_rgb.c\
 		SRC/PARSE_MAP/exit_clean.c
+		SRC/UTILS/utils_parsing.c\
+		SRC/parsing/inits.c\
+		SRC/parsing/free_map.c\
+		SRC/parsing/parse_map.c\
+		SRC/parsing/parse_map3.c\
+		SRC/parsing/utils.c\
+		
 		
 		
 CFLAGS = -Wall -Wextra

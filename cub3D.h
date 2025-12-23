@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/25 15:03:17 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/22 10:49:29 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include "mlx/mlx.h"
 # include <X11/keysym.h>
 #include "math.h"
+# include <stdio.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <sys/types.h>
 
 # define TRUE 0
 # define FALSE 1
@@ -66,6 +72,8 @@ typedef struct s_game
 	t_texture	textures[4];
 	int			f_color;
 	int			c_color;
+	char		*map_name;
+	int			fd;
 } t_game;
 
 typedef struct s_ray
@@ -134,6 +142,10 @@ void	replace_space(t_game *data);
 char	*fill_line(char *line, int max_len);
 void	equalize_map(t_game *data);
 void	get_max_len(t_game *data);
+int valid_rgb_floor(t_game *data);
+int valid_rgb_ceiling(t_game *data);
+
+
 
 //UTILS
 int		strlen_array(char **array);
@@ -188,5 +200,23 @@ int		render(t_game *g);
 //parse
 int exit_clean(t_game *data);
 void exit_clean_char(t_game *data);
+
+//parsing_naib
+int	init_map(t_game *map, char *name);
+
+void	free_map(t_game *map);
+void	free_all(t_game *map);
+
+int	parse_card_paths(t_game *map);
+int	parse_card_paths2(t_game *map);
+int	check_ifvalid(t_game *map);
+int	parsing(char *name, t_game *map);
+
+int	parse_map_name(char *name);
+
+int	map_count_line(char *file);
+void	free_tab(char **array);
+void	printtab(char *tableau[]);
+int	ft_tablen(char **tab);
 
 #endif

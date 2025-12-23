@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmagamad <nmagamad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:12:01 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/17 13:32:16 by nmagamad         ###   ########.fr       */
+/*   Updated: 2025/12/22 10:20:47 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../cub3D.h"
 
-void	free_map(t_map *map)
+void	free_map(t_game *map)
 {
-	if (map->no) 
-		free(map->no);
-	if (map->so)
-		free(map->so);
-	if (map->ea)
-		free(map->ea);
-	if (map->we)
-		free(map->we);
-	if (map->c)
-		free(map->c);
-	if (map->f)
-		free(map->f);
+	if (map->north) 
+		free(map->north);
+	if (map->south)
+		free(map->south);
+	if (map->east)
+		free(map->east);
+	if (map->west)
+		free(map->west);
+	if (map->ceiling)
+		free(map->ceiling);
+	if (map->floor)
+		free(map->floor);
 	if (map->map)
 		free_tab(map->map);
 }
 
-void	free_all(t_map *map)
+void	free_all(t_game *map)
 {
 	free_map(map);
 }
 
 int	main(int ac, char **av)
 {
-	t_map	map;
+	t_game	map;
 
 	if (ac != 2)
 		return (printf("Error\ntoo few arg\n"));
