@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 06:54:27 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:34:54 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 
 	(void) argc;
 	init_var_struct(&g, argv);
-	printf("%s\n", g.north);
 	g.ray = &r;
 	if (argc != 2)
 		return (printf("Error\ntoo few arg\n"));
@@ -46,10 +45,10 @@ int main(int argc, char **argv)
 	initialize_window(&g);
 	g.screen.width = g.screen_w;
 	g.screen.height = g.screen_h;
-	load_texture(&g, &g.textures[0], "./SRC/img/sud.xpm"); // NORTH
-	load_texture(&g, &g.textures[1], "./SRC/img/wall.xpm"); // SOUTH
-	load_texture(&g, &g.textures[2], "./SRC/img/wall.xpm");  // WEST
-	load_texture(&g, &g.textures[3], "./SRC/img/wall.xpm");  // EAST
+	load_texture(&g, &g.textures[0], "./SRC/img/south.xpm"); // NORTH
+	load_texture(&g, &g.textures[1], "./SRC/img/south.xpm"); // SOUTH
+	load_texture(&g, &g.textures[2], "./SRC/img/south.xpm");  // WEST
+	load_texture(&g, &g.textures[3], "./SRC/img/south.xpm");  // EAST
 	init_player(&r, &g);
 	mlx_hook(g.mlx_win, 2, 1L << 0, wich_input_press, &g);
 	mlx_hook(g.mlx_win, 3, 1L << 1, wich_key_release, &g);
@@ -57,3 +56,5 @@ int main(int argc, char **argv)
 	mlx_loop(g.mlx);
 	return (0);
 }
+
+//fix get_map error si pas de map

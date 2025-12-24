@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/12/24 07:17:10 by abtouait         ###   ########.fr        #
+#    Updated: 2025/12/24 16:16:54 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		
 		
 		
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g
 
 MLX_LIB = mlx/libmlx.a
 

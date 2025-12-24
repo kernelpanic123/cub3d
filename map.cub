@@ -1,11 +1,10 @@
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-NO ./path_to_the_north_texture
+SO ./SRC/img/south.xpm
+WE ./SRC/img/west.xpm
+EA ./SRC/img/east.xpm
+NO ./SRC/img/north.xpm
 
-F 255,100,50
-C 50,20,150
-
+F 255,255,255
+C 255,255,255
 
 
 

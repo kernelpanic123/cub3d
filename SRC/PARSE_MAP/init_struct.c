@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:32:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 06:58:27 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:41:27 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	init_var_struct(t_game *data, char **argv)
 	get_west(data);
 	get_south(data);
 	get_east(data);
-	replace_space(data);
 	get_max_len(data);
 	equalize_map(data);
+	replace_space(data);
 	
 }

@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:05:32 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/03 15:37:58 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:17:09 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int exit_clean(t_game *data)
 	exit_clean_char(data);
 	return (0);
 }
+
 void exit_clean_char(t_game *data)
 {
 	free(data->floor);

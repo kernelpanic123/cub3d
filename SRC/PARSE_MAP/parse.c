@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:23:03 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 06:49:37 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 12:22:46 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int parse_rgb(t_game *data)
 		return (TRUE);
 	}
 	else
+	{
+		printf("ERROR COLOR\n");
 		return (FALSE);
+	}
+		
 }
 
 int medium_parse(t_game *data, int argc, char **argv)

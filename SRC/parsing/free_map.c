@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:12:01 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 06:33:32 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 12:01:28 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	free_map(t_game *map)
 		free(map->floor);
 	if (map->map)
 		free_tab(map->map);
+	if (map->file)
+		free_tab(map->file);
 }
 
 void	free_all(t_game *map)

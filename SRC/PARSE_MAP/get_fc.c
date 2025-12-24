@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 19:23:36 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 13:44:17 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:47:45 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,22 @@ void get_ceiling(t_game *data)
 	}
 }
 
-
 int	rgb_to_int(char *rgb)
 {
 	char	**rgb_values;
+	char	*tmp;
 	int		result;
 
+	tmp = NULL;
 	rgb_values = ft_split(rgb, ',');
+	tmp = ft_strtrim(rgb_values[0] + 2, " \t\n");
 	if (!rgb_values)
 		return (-1);
-	result = ft_atoi(rgb_values[0]) << 16
+	result = ft_atoi(tmp) << 16
 		| ft_atoi(rgb_values[1]) << 8
 		| ft_atoi(rgb_values[2]);
 	free_array_simple(rgb_values);
+	free(tmp);
 	return (result);
 }
 

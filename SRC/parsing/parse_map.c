@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:33:54 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 06:39:28 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:05:43 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,24 @@ int	parse_card_paths(t_game *map)
 	int		fd;
 
 	fd = -2;
-	tmp = ft_strtrim(map->north + 2, " \t");
+	tmp = ft_strtrim(map->north + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
+	{
+		printf("%s\n", tmp);
 		return (free(tmp), printf("Error\nwrong path for cardinal(s)\n"));
-	if (open(tmp + 2, O_RDONLY) < 0)
-		return (free(tmp), printf ("Error\nopen failed\n"));
+	}
+	if (open(tmp, O_RDONLY) < 0)
+	{
+		printf("%s\n", tmp);
+		return (free(tmp), printf ("Error1\nopen failed\n"));
+	}
+		
 	free(tmp);
-	tmp = ft_strtrim(map->south + 2, " \t");
+	tmp = ft_strtrim(map->south + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
 		return (free(tmp), printf("Error\nwrong path for cardinal(s)\n"));
-	if (open(tmp + 2, O_RDONLY) < 0)
-		return (free(tmp), printf ("Error\nopen failed\n"));
+	if (open(tmp, O_RDONLY) < 0)
+		return (free(tmp), printf ("Error2\nopen failed\n"));
 	free(tmp);
 	return (0);
 }
@@ -39,16 +46,16 @@ int	parse_card_paths2(t_game *map)
 	int		fd;
 
 	fd = -2;
-	tmp = ft_strtrim(map->east + 2, " \t");
+	tmp = ft_strtrim(map->east + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
 		return (free(tmp), printf("Error\nwrong path for cardinal(s)\n"));
-	if (open(tmp + 2, O_RDONLY) < 0)
+	if (open(tmp, O_RDONLY) < 0)
 		return (free(tmp), printf ("Error\nopen failed\n"));
 	free(tmp);
-	tmp = ft_strtrim(map->west + 2, " \t");
+	tmp = ft_strtrim(map->west + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
 		return (free(tmp), printf("Error\nwrong path for cardinal(s)\n"));
-	if (open(tmp + 2, O_RDONLY) < 0)
+	if (open(tmp, O_RDONLY) < 0)
 		return (free(tmp), printf ("Error\nopen failed\n"));
 	free(tmp);
 	return (0);
@@ -68,6 +75,8 @@ int	check_ifvalid(t_game *map)
 		return (printf("Error\ncardinal init failed\n"));
 	if (!map->east)
 		return (printf("Error\ncardinal init failed\n"));
+	if (!map->map)
+		return (printf("Error\nmap init failed\n"));
 	return (0);
 }
 
@@ -75,11 +84,11 @@ int	parsing(char *name, t_game *map)
 {
 	if (init_map(map, name))
 		return (1);
-	if (parse_rgb(map))
-		return (1);
 	if (check_ifvalid(map))
 		return (1);
 	if (check_char_map(map))
+		return (1);
+	if (parse_color_c(map) || parse_color_f(map))
 		return (1);
 	if (parse_player(map) != 1)
 	{

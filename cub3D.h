@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 06:11:23 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 16:35:04 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,5 +220,13 @@ int	map_count_line(char *file);
 void	free_tab(char **array);
 void	printtab(char *tableau[]);
 int	ft_tablen(char **tab);
+
+int	parse_color_f2(char *str);
+int	parse_color_f3(char **tab);
+int	parse_color_f(t_game *map);
+
+int	parse_color_c2(char *str);
+int	parse_color_c3(char **tab);
+int	parse_color_c(t_game *map);
 
 #endif
