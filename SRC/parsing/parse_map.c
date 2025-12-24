@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:33:54 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/22 10:50:44 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 06:39:28 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,20 @@ int	parsing(char *name, t_game *map)
 {
 	if (init_map(map, name))
 		return (1);
-	if (check_ifvalid(map))
-		return (1);
-	if (parse_chars(map))
-		return (1);
 	if (parse_rgb(map))
 		return (1);
+	if (check_ifvalid(map))
+		return (1);
+	if (check_char_map(map))
+		return (1);
+	if (parse_player(map) != 1)
+	{
+		printf("ERROR NO OR MORE THAN 1 PLAYER DETECTED\n");
+		return (FALSE);
+	}
 	if (parse_card_paths(map) || parse_card_paths2(map))
 		return (1);
-	if (parse_walls(map, ft_tablen(map->map) - 1) || parse_walls2(map))
+	if (check_closed_map(map))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/03 16:27:36 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 06:54:27 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,17 @@ int main(int argc, char **argv)
 
 	(void) argc;
 	init_var_struct(&g, argv);
+	printf("%s\n", g.north);
 	g.ray = &r;
-	get_map(&g);
-	get_floor(&g);
-	get_ceiling(&g);
-	parse_rgb(&g);
-	replace_space(&g);
-	get_max_len(&g);
-	equalize_map(&g);
+	if (argc != 2)
+		return (printf("Error\ntoo few arg\n"));
+	if (parse_map_name(argv[1]))
+		return (printf("Error\nmap is not in .cub\n"));
+	if (parsing(argv[1], &g))
+	{
+		free_all(&g);
+		return (1);
+	}
 	initialize_window(&g);
 	g.screen.width = g.screen_w;
 	g.screen.height = g.screen_h;

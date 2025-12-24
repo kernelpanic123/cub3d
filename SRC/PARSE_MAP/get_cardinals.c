@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 01:47:41 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/03 16:27:22 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 07:16:35 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,51 +18,64 @@ void get_north(t_game *data)
 	int j;
 
 	i = 0;
-	while (data->file != NULL)
+	while (data->file[i] != NULL)
 	{
 		j = 0;
 		while (data->file[i][j] == ' ')
 			j++;
 		if (data->file[i][j] == 'N')
-			data->north = ft_strdup(data->file[i][j]);
+			data->north = ft_strdup(data->file[i]);
 		i++;
 	}
 }
 
-void get_west(t_game *data)
+void	get_west(t_game *data)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->file[i] != NULL)
 	{
-		if (data->file[i][0] == 'W')
+		j = 0;
+		while (data->file[i][j] == ' ')
+			j++;
+		if (data->file[i][j] == 'W')
 			data->west = ft_strdup(data->file[i]);
 		i++;
 	}
 }
 
-void get_south(t_game *data)
+void	get_south(t_game *data)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->file[i] != NULL)
 	{
-		if (data->file[i][0] == 'S')
+		j = 0;
+		while (data->file[i][j] == ' ')
+			j++;
+		if (data->file[i][j] == 'S')
 			data->south = ft_strdup(data->file[i]);
 		i++;
 	}
 }
 
-void get_east(t_game *data)
+
+void	get_east(t_game *data)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->file[i] != NULL)
 	{
-		if (data->file[i][0] == 'E')
+		j = 0;
+		while (data->file[i][j] == ' ')
+			j++;
+		if (data->file[i][j] == 'E')
 			data->east = ft_strdup(data->file[i]);
 		i++;
 	}

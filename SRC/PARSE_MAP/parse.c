@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:23:03 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/24 14:13:47 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 06:49:37 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int parse_rgb(t_game *data)
 {
+	if (!data->ceiling || !data->floor)
+	{
+		printf("Error\nmissing ceiling or floor color configuration\n");
+		return (FALSE);
+	}
 	if (valid_rgb_ceiling(data) == 0 && valid_rgb_floor(data) == 0)
 	{
 		data->f_color = rgb_to_int(data->floor);

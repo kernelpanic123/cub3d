@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/22 10:49:29 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/24 06:11:23 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,8 @@ int		strlen_array(char **array);
 char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, int start, int len);
 void	*ft_memset(void *s, int c, size_t n);
+char	*ft_strtrim(char const *s1, char const *set);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //utils_rgb
 int	ft_isdigit(int c);
