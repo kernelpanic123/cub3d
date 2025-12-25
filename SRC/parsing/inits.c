@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:46:04 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 16:25:18 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 13:48:30 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,23 @@ int	parse_color_c(t_game *map)
 	map->c_color = rgb_to_int(map->ceiling);
 	free_tab(tmp2);
 	return (0);
+}
+int check_empty_map(t_game *data, char *file)
+{
+	data->file = parse_map(file);
+	if (data->file == NULL)
+	{
+		printf("ERROR FILE EMPTY\n");
+		return (FALSE);
+	}
+	get_map(data);
+	if (!data->map)
+	{
+		printf("ERROR MAP EMPTY\n");
+		free_array_simple(data->file);
+		return (FALSE);
+	}
+	free_array_simple(data->map);
+	free_array_simple(data->file);
+	return (TRUE);
 }

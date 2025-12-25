@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:33:54 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 16:05:43 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 12:20:25 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,9 @@ int	parsing(char *name, t_game *map)
 	if (parse_card_paths(map) || parse_card_paths2(map))
 		return (1);
 	if (check_closed_map(map))
+	{
+		printf("MAP NOT CLOSE\n");
 		return (1);
+	}
 	return (0);
 }

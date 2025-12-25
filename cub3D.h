@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 16:35:04 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 12:52:38 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,5 +228,7 @@ int	parse_color_f(t_game *map);
 int	parse_color_c2(char *str);
 int	parse_color_c3(char **tab);
 int	parse_color_c(t_game *map);
+
+int check_empty_map(t_game *data, char *file);
 
 #endif

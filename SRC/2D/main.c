@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 16:34:54 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 12:41:10 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 	t_ray	r;
 
 	(void) argc;
+	if (check_empty_map(&g, argv[1]))
+		return (1);
 	init_var_struct(&g, argv);
 	g.ray = &r;
 	if (argc != 2)
