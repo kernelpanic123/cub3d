@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:46:04 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/25 13:48:30 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 14:33:23 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,10 @@ int check_empty_map(t_game *data, char *file)
 	{
 		printf("ERROR MAP EMPTY\n");
 		free_array_simple(data->file);
+		data->file = NULL;
 		return (FALSE);
 	}
-	free_array_simple(data->map);
-	free_array_simple(data->file);
 	return (TRUE);
 }
+
+

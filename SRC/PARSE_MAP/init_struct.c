@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:32:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/25 12:05:36 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/25 14:30:54 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_var_struct(t_game *data, char **argv)
 	data->f_color = 0;
 	data->c_color = 0;
 	data->max_len = 0;
-	get_map(data);
 	get_floor(data);
 	get_ceiling(data);
 	get_north(data);
