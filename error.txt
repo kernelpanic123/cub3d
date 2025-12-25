@@ -1,0 +1,23 @@
+ERROR MAP EMPTY
+ERROR MAP EMPTY
+ERROR MAP EMPTY
+ERROR MAP EMPTY
+ERROR MAP EMPTY
+ERROR MAP EMPTY
+
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==120713==ERROR: AddressSanitizer: SEGV on unknown address (pc 0x0000004cfadb bp 0x7fff9440ab60 sp 0x7fff9440ab50 T0)
+==120713==The signal is caused by a READ memory access.
+==120713==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+    #0 0x4cfadb in free_array_simple /home/abtouait/Desktop/cub3d/SRC/UTILS/utils_rgb.c:42:18
+    #1 0x4d04bb in check_empty_map /home/abtouait/Desktop/cub3d/SRC/parsing/inits.c:108:2
+    #2 0x4cf7ec in main /home/abtouait/Desktop/cub3d/SRC/2D/main.c:34:6
+    #3 0x7ff6f9029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #4 0x7ff6f9029e3f in __libc_start_main csu/../csu/libc-start.c:392:3
+    #5 0x41f5e4 in _start (/home/abtouait/Desktop/cub3d/cub3D+0x41f5e4)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/abtouait/Desktop/cub3d/SRC/UTILS/utils_rgb.c:42:18 in free_array_simple
+==120713==ABORTING
+
