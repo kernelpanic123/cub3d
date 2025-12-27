@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:04:01 by abtouait          #+#    #+#             */
-/*   Updated: 2025/10/30 19:21:59 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:52:27 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stddef.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 7
+#  define BUFFER_SIZE 7
 # endif
 
 char	*get_next_line(int fd);

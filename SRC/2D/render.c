@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:09:46 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/03 16:37:13 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:29:12 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	calcul_texture_id(t_ray *r)
 	if (r->side == 0)
 	{
 		if (r->stepx > 0)
-			r->texture_id = 3; //est
+			r->texture_id = 3;
 		else
-			r->texture_id = 2; //ouest
+			r->texture_id = 2;
 	}
 	else
 	{
 		if (r->stepy > 0)
-			r->texture_id = 1; //sud
+			r->texture_id = 1;
 		else
-			r->texture_id = 0; //nord
+			r->texture_id = 0;
 	}
 }
 
@@ -45,20 +45,22 @@ void	calculate_texture_coords(t_game *data, t_ray *r)
 	if ((r->side == 0 && r->raydirx > 0) || (r->side == 1 && r->raydiry < 0))
 		r->texx = tex->width - r->texx - 1;
 	r->step = 1.0 * tex->height / r->lineheight;
-	r->texpos = (r->drawstart - data->screen_h / 2 + r->lineheight / 2) * r->step;
+	r->texpos = (r->drawstart - data->screen_h / 2
+			+ r->lineheight / 2) * r->step;
 }
+
 void	draw_wall_textured(t_game *data, t_ray *r)
 {
 	int			y;
 	int			texy;
 	int			color;
 	t_texture	*tex;
-	
+
 	tex = &data->textures[r->texture_id];
 	y = 0;
 	while (y < r->drawstart)
 	{
-		my_pixel_put(&data->screen, r->x, y, data->c_color); //plafond
+		my_pixel_put(&data->screen, r->x, y, data->c_color);
 		y++;
 	}
 	while (y <= r->drawend)
@@ -72,19 +74,17 @@ void	draw_wall_textured(t_game *data, t_ray *r)
 		y++;
 	}
 	while (y++ < data->screen_h)
-		my_pixel_put(&data->screen, r->x, y, data->f_color); //sol
+		my_pixel_put(&data->screen, r->x, y, data->f_color);
 }
 
-
-void engine_3d(t_game *g, t_ray *r)
+void	engine_3d(t_game *g, t_ray *r)
 {
-	int w;
+	int	w;
 
 	w = g->screen_w;
 	r->x = 0;
 	while (r->x < w)
 	{
-		
 		init_param(g, r);
 		dda_loop(g, r);
 		calcul_dist_wall(g, r);
@@ -94,7 +94,7 @@ void engine_3d(t_game *g, t_ray *r)
 	}
 }
 
-int render(t_game *g)
+int	render(t_game *g)
 {
 	if (g->w_key)
 		move_forward(g);

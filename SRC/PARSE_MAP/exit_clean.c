@@ -6,16 +6,16 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:05:32 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 16:17:09 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:43:52 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-int exit_clean(t_game *data)
+int	exit_clean(t_game *data)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (data->screen.img)
 		mlx_destroy_image(data->mlx, data->screen.img);
@@ -34,7 +34,7 @@ int exit_clean(t_game *data)
 	return (0);
 }
 
-void exit_clean_char(t_game *data)
+void	exit_clean_char(t_game *data)
 {
 	free(data->floor);
 	free(data->ceiling);

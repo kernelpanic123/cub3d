@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:12:01 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 12:01:28 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:47:31 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map(t_game *map)
 {
-	if (map->north) 
+	if (map->north)
 		free(map->north);
 	if (map->south)
 		free(map->south);

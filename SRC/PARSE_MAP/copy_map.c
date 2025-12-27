@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:29:11 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/25 12:59:39 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:43:27 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	count_lines(char *file)
 	int		count;
 	char	*line;
 
-	fd = open(file ,O_RDONLY);
+	fd = open(file, O_RDONLY);
 	count = 0;
 	if (fd < 0)
 		return (FALSE);
@@ -46,7 +46,7 @@ char	**parse_map(char *file)
 	arrays = malloc(sizeof(char *) * (total_lines + 1));
 	if (!arrays)
 		return (NULL);
-	fd = open(file , O_RDONLY);
+	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
 	line = get_next_line(fd);
@@ -60,10 +60,11 @@ char	**parse_map(char *file)
 	close(fd);
 	return (arrays);
 }
+
 int	search_map_start(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->file[i] != NULL)
@@ -77,11 +78,13 @@ int	search_map_start(t_game *data)
 	}
 	return (-1);
 }
+
 void	get_map(t_game *data)
 {
 	int	i;
 	int	len;
-	
+
+	data->map = NULL;
 	len = 0;
 	i = search_map_start(data);
 	if (i == -1)

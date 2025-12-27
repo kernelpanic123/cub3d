@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:53:23 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 16:22:02 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:45:07 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	find_x_player(t_game *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == 'N' || data->map[i][j] == 'E' || data->map[i][j] == 'S' || data->map[i][j] == 'W')
+			if (data->map[i][j] == 'N' || data->map[i][j] == 'E'
+					|| data->map[i][j] == 'S' || data->map[i][j] == 'W')
 				return (j);
 			j++;
 		}
@@ -43,7 +44,8 @@ int	find_y_player(t_game *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == 'N' || data->map[i][j] == 'E' || data->map[i][j] == 'S' || data->map[i][j] == 'W')
+			if (data->map[i][j] == 'N' || data->map[i][j] == 'E'
+					|| data->map[i][j] == 'S' || data->map[i][j] == 'W')
 				return (i);
 			j++;
 		}
@@ -51,6 +53,7 @@ int	find_y_player(t_game *data)
 	}
 	return (-1);
 }
+
 void	flood_fill(char **map, int y, int x)
 {
 	if (map[y][x] == '1' || map[y][x] == 'V')
@@ -61,19 +64,21 @@ void	flood_fill(char **map, int y, int x)
 	flood_fill(map, y, x + 1);
 	flood_fill(map, y, x - 1);
 }
-void flood_map(t_game *data)
+
+void	flood_map(t_game *data)
 {
-	int y_player;
-	int x_player;
-	
+	int	y_player;
+	int	x_player;
+
 	y_player = find_y_player(data);
 	x_player = find_x_player(data);
 	flood_fill(data->map, y_player, x_player);
 }
-void replace_space(t_game *data)
+
+void	replace_space(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->map[i] != NULL)

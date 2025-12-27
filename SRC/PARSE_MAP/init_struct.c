@@ -6,16 +6,14 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:32:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/25 14:30:54 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 17:54:11 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-void	init_var_struct(t_game *data, char **argv)
+void	init_var_struct(t_game *data)
 {
-	ft_memset(data, 0, sizeof(t_game));
-	data->file = parse_map(argv[1]);
 	data->f_color = 0;
 	data->c_color = 0;
 	data->max_len = 0;
@@ -27,5 +25,5 @@ void	init_var_struct(t_game *data, char **argv)
 	get_east(data);
 	get_max_len(data);
 	equalize_map(data);
-	replace_space(data);	
+	replace_space(data);
 }

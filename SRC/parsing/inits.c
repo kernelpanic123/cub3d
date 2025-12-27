@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:46:04 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/25 14:33:23 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:51:42 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@ int	init_map(t_game *map, char *name)
 {
 	map->map_name = name;
 	map->fd = open(name, O_RDONLY);
-	// if (map->fd < 0)
-	// 	return (printf("Error\nopen failed"));
-	// close(map->fd);
-	// map->fd = open(name, O_RDONLY);
-	// if (map->fd < 0)
-	// 	return (printf("Error\nopen failed"));
-	// close(map->fd);
-	// map->fd = open(name, O_RDONLY);
 	if (map->fd < 0)
 		return (printf("Error\nopen failed"));
 	close(map->fd);
 	return (0);
 }
+
 int	parse_color_c2(char *str)
 {
 	int	i;
@@ -43,7 +36,7 @@ int	parse_color_c2(char *str)
 		if ((str[i] == ',' && i == 0)
 			|| (str[i] == ',' && ft_isdigit(str[i - 1]))
 			|| (str[i] == ',' && ft_isdigit(str[i + 1])))
-				return (1);
+			return (1);
 		if (str[i] == ',')
 			count++;
 	}
@@ -90,13 +83,22 @@ int	parse_color_c(t_game *map)
 	free_tab(tmp2);
 	return (0);
 }
-int check_empty_map(t_game *data, char *file)
+
+int	check_empty_map(t_game *data, char *file)
 {
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		printf("ERROR\nFILE");
+		return (1);
+	}
 	data->file = parse_map(file);
 	if (data->file == NULL)
 	{
 		printf("ERROR FILE EMPTY\n");
-		return (FALSE);
+		return (1);
 	}
 	get_map(data);
 	if (!data->map)
@@ -104,9 +106,7 @@ int check_empty_map(t_game *data, char *file)
 		printf("ERROR MAP EMPTY\n");
 		free_array_simple(data->file);
 		data->file = NULL;
-		return (FALSE);
+		return (1);
 	}
-	return (TRUE);
+	return (0);
 }
-
-

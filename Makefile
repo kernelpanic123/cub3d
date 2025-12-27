@@ -6,7 +6,7 @@
 #    By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 18:21:52 by abtouait          #+#    #+#              #
-#    Updated: 2025/12/25 13:30:41 by abtouait         ###   ########.fr        #
+#    Updated: 2025/12/26 17:54:35 by abtouait         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,11 @@ SRC =	SRC/GNL/get_next_line_utils.c\
 		SRC/parsing/parse_map.c\
 		SRC/parsing/parse_map3.c\
 		SRC/parsing/utils.c\
+		SRC/2D/key_movement.c\
 		
 		
 		
-CFLAGS = -Wall -Wextra -g
+CFLAGS = -Wall -Wextra -Werror
 
 MLX_LIB = mlx/libmlx.a
 
@@ -58,7 +59,7 @@ $(MLX_LIB):
 	cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(MLX_LIB)
-	cc $(OBJ) -fsanitize=address -g3 -Lmlx -lmlx -lXext -lX11 -lm -o $(NAME)
+	cc $(OBJ) -Lmlx -lmlx -lXext -lX11 -lm -o $(NAME)
 
 clean:
 	rm -f *.o
@@ -67,6 +68,7 @@ clean:
 	rm -f SRC/WINDOW/*.o
 	rm -f SRC/UTILS/*.o
 	rm -f SRC/2D/*.o
+	rm -f SRC/parsing/*.o
 	make -C mlx clean
 
 fclean: clean

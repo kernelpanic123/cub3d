@@ -6,21 +6,22 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:23:37 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/25 13:38:07 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:49:42 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-int strlen_array(char **array)
+int	strlen_array(char **array)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (array[i] != NULL)
 		i++;
 	return (i);
 }
+
 static int	nbr_mots(char *s, char c)
 {
 	size_t	count;
@@ -70,7 +71,8 @@ char	**ft_split(char *s, char c)
 	new_str[i] = NULL;
 	return (new_str);
 }
-char	*ft_substr(char *s,int start, int len)
+
+char	*ft_substr(char *s, int start, int len)
 {
 	char	*str;
 	int		i;
@@ -93,6 +95,7 @@ char	*ft_substr(char *s,int start, int len)
 	str[i] = '\0';
 	return (str);
 }
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*byte;

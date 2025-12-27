@@ -6,16 +6,16 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 08:26:55 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/21 10:41:23 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:10:31 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-void get_dir_player(t_ray *r, t_game *data)
+void	get_dir_player(t_ray *r, t_game *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = find_x_player(data);
 	y = find_y_player(data);
@@ -40,11 +40,14 @@ void get_dir_player(t_ray *r, t_game *data)
 		r->diry = 0;
 	}
 }
-void get_plan_cam(t_ray *r, t_game *data)
-{
-	int x = find_x_player(data);
-	int y = find_y_player(data);
 
+void	get_plan_cam(t_ray *r, t_game *data)
+{
+	int	x;
+	int	y;
+
+	x = find_x_player(data);
+	y = find_y_player(data);
 	if (data->map[y][x] == 'N')
 	{
 		r->planx = 0.66;
@@ -67,13 +70,13 @@ void get_plan_cam(t_ray *r, t_game *data)
 	}
 }
 
-void get_map_pos(t_ray *r)
+void	get_map_pos(t_ray *r)
 {
 	r->mapx = (int)r->posx;
 	r->mapy = (int)r->posy;
 }
 
-void init_player(t_ray *r, t_game *data)
+void	init_player(t_ray *r, t_game *data)
 {
 	r->posx = find_x_player(data) + 0.5;
 	r->posy = find_y_player(data) + 0.5;
@@ -86,6 +89,4 @@ void init_player(t_ray *r, t_game *data)
 	data->w_key = 0;
 	data->left_key = 0;
 	data->right_key = 0;
-	
 }
-

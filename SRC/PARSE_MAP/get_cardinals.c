@@ -6,16 +6,16 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 01:47:41 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 07:16:35 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:42:26 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-void get_north(t_game *data)
+void	get_north(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->file[i] != NULL)
@@ -62,7 +62,6 @@ void	get_south(t_game *data)
 		i++;
 	}
 }
-
 
 void	get_east(t_game *data)
 {

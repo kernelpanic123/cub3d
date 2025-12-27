@@ -6,16 +6,16 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 19:23:36 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 16:47:45 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:39:13 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-void get_floor(t_game *data)
+void	get_floor(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -29,10 +29,11 @@ void get_floor(t_game *data)
 		i++;
 	}
 }
-void get_ceiling(t_game *data)
+
+void	get_ceiling(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -66,11 +67,11 @@ int	rgb_to_int(char *rgb)
 	return (result);
 }
 
-int valid_rgb_floor(t_game *data)
+int	valid_rgb_floor(t_game *data)
 {
-	int i;
-	int j;
-	char **array;
+	int		i;
+	int		j;
+	char	**array;
 
 	i = 0;
 	j = 0;
@@ -90,11 +91,12 @@ int valid_rgb_floor(t_game *data)
 	}
 	return (free_array(array, TRUE));
 }
-int valid_rgb_ceiling(t_game *data)
+
+int	valid_rgb_ceiling(t_game *data)
 {
-	int i;
-	int j;
-	char **array;
+	int		i;
+	int		j;
+	char	**array;
 
 	i = 0;
 	j = 0;
@@ -114,7 +116,6 @@ int valid_rgb_ceiling(t_game *data)
 	}
 	return (free_array(array, TRUE));
 }
-
 
 // int main(int argc, char **argv)
 // {

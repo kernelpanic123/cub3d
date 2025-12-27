@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:33:54 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/25 12:20:25 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:35:40 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	parse_card_paths(t_game *map)
 {
 	char	*tmp;
-	int		fd;
 
-	fd = -2;
 	tmp = ft_strtrim(map->north + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
 	{
@@ -29,7 +27,6 @@ int	parse_card_paths(t_game *map)
 		printf("%s\n", tmp);
 		return (free(tmp), printf ("Error1\nopen failed\n"));
 	}
-		
 	free(tmp);
 	tmp = ft_strtrim(map->south + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
@@ -43,9 +40,7 @@ int	parse_card_paths(t_game *map)
 int	parse_card_paths2(t_game *map)
 {
 	char	*tmp;
-	int		fd;
 
-	fd = -2;
 	tmp = ft_strtrim(map->east + 2, " \t\n");
 	if (ft_strncmp(tmp, "./", 2))
 		return (free(tmp), printf("Error\nwrong path for cardinal(s)\n"));
@@ -102,5 +97,24 @@ int	parsing(char *name, t_game *map)
 		printf("MAP NOT CLOSE\n");
 		return (1);
 	}
+	get_exact_path(map);
 	return (0);
+}
+
+void	get_exact_path(t_game *data)
+{
+	char	*tmp;
+
+	tmp = ft_strtrim(data->east + 2, " \t\n");
+	free(data->east);
+	data->east = tmp;
+	tmp = ft_strtrim(data->north + 2, " \t\n");
+	free(data->north);
+	data->north = tmp;
+	tmp = ft_strtrim(data->south + 2, " \t\n");
+	free(data->south);
+	data->south = tmp;
+	tmp = ft_strtrim(data->west + 2, " \t\n");
+	free(data->west);
+	data->west = tmp;
 }

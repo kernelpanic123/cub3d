@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:12:43 by nmagamad          #+#    #+#             */
-/*   Updated: 2025/12/24 15:48:54 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:47:17 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	parse_map_name(char *name)
 		return (1);
 	return (0);
 }
+
 int	parse_color_f2(char *str)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:37:17 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/25 13:39:57 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:50:46 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	ft_isdigit(int c)
 	else
 		return (1);
 }
+
 int	free_array(char **array, int s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])
@@ -32,6 +33,7 @@ int	free_array(char **array, int s)
 	free(array);
 	return (s);
 }
+
 void	free_array_simple(char **array)
 {
 	int	i;

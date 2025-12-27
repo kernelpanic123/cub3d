@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 02:10:21 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/25 12:52:38 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/27 10:11:49 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "SRC/GNL/get_next_line.h"
 # include "mlx/mlx.h"
 # include <X11/keysym.h>
-#include "math.h"
+# include "math.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <errno.h>
@@ -28,8 +28,7 @@
 # define FALSE 1
 # define BLOCK 50
 
-typedef struct s_ray t_ray;
-
+typedef struct s_ray	t_ray;
 
 typedef struct s_texture
 {
@@ -40,8 +39,7 @@ typedef struct s_texture
 	int		endian;
 	int		width;
 	int		height;
-	
-} t_texture;
+}	t_texture;
 
 typedef struct s_game
 {
@@ -74,7 +72,7 @@ typedef struct s_game
 	int			c_color;
 	char		*map_name;
 	int			fd;
-} t_game;
+}	t_game;
 
 typedef struct s_ray
 {
@@ -82,10 +80,10 @@ typedef struct s_ray
 	double		posy;
 	double		dirx;
 	double		diry;
-	double		planx;//("perpendiculaire" au vecteur direction qui determine le FOV
+	double		planx;//("perpendiculaire" au vecteur direction -> determine FOV
 	double		plany;
-	int 		x;// nombres de rayon
-	double		cameraX;
+	int			x;// nombres de rayon
+	double		camerax;
 	double		raydirx;
 	double		raydiry;
 	int			mapx;
@@ -93,84 +91,79 @@ typedef struct s_ray
 	double		deltadistx;
 	double		deltadisty;
 	int			stepx;
-	int			stepy; 
-	double		sidedistx; 
-	double		sidedisty; 
-	int			side; // 0 si c'est un cote x qui est touche (vertical), 1 si un cote y (horizontal)
+	int			stepy;
+	double		sidedistx;
+	double		sidedisty;
+	int			side; // 0 si x qui est touche (vertical), 1 si un cote y
 	double		perpwalldist;
 	int			drawstart;
 	int			drawend;
 	int			lineheight;
 	int			texture_id;
-    double		wallx;
-    int			texx;
-    double		step;
-    double		texpos;
-} t_ray;
-
-
-
+	double		wallx;
+	int			texx;
+	double		step;
+	double		texpos;
+}	t_ray;
 
 //PARSE_MAP
-int		check_extension(char *str);
-int		open_map(char *str);
-int		smol_parse(int argc, char **argv);
-int		count_lines(char *file);
-char	**parse_map(char *file);
-void	init_var_struct(t_game *data, char **argv);
-void	get_north(t_game *data);
-void	get_west(t_game *data);
-void	get_south(t_game *data);
-void	get_east(t_game *data);
-void	get_ceiling(t_game *data);
-void	get_floor(t_game *data);
-int		rgb_to_int(char *rgb);
-int		parse_rgb(t_game *data);
-int		search_map_start(t_game *data);
-void	get_map(t_game *data);
-int		check_char_map(t_game *data);
-int		parse_player(t_game *data);
-int		closed_line(char *line);
-int		check_full_line(char *line);
-int		check_closed_map(t_game *data);
-int		medium_parse(t_game *data, int argc, char **argv);
-int		find_x_player(t_game *data);
-int		find_y_player(t_game *data);
-void	flood_fill(char **map, int y, int x);
-void	flood_map(t_game *data);
-void	replace_space(t_game *data);
-char	*fill_line(char *line, int max_len);
-void	equalize_map(t_game *data);
-void	get_max_len(t_game *data);
-int valid_rgb_floor(t_game *data);
-int valid_rgb_ceiling(t_game *data);
-
-
+int				check_extension(char *str);
+int				open_map(char *str);
+int				smol_parse(int argc, char **argv);
+int				count_lines(char *file);
+char			**parse_map(char *file);
+void			init_var_struct(t_game *data);
+void			get_north(t_game *data);
+void			get_west(t_game *data);
+void			get_south(t_game *data);
+void			get_east(t_game *data);
+void			get_ceiling(t_game *data);
+void			get_floor(t_game *data);
+int				rgb_to_int(char *rgb);
+int				parse_rgb(t_game *data);
+int				search_map_start(t_game *data);
+void			get_map(t_game *data);
+int				check_char_map(t_game *data);
+int				parse_player(t_game *data);
+int				closed_line(char *line);
+int				check_full_line(char *line);
+int				check_closed_map(t_game *data);
+int				medium_parse(t_game *data, int argc, char **argv);
+int				find_x_player(t_game *data);
+int				find_y_player(t_game *data);
+void			flood_fill(char **map, int y, int x);
+void			flood_map(t_game *data);
+void			replace_space(t_game *data);
+char			*fill_line(char *line, int max_len);
+void			equalize_map(t_game *data);
+void			get_max_len(t_game *data);
+int				valid_rgb_floor(t_game *data);
+int				valid_rgb_ceiling(t_game *data);
 
 //UTILS
-int		strlen_array(char **array);
-char	**ft_split(char *s, char c);
-char	*ft_substr(char *s, int start, int len);
-void	*ft_memset(void *s, int c, size_t n);
-char	*ft_strtrim(char const *s1, char const *set);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int				strlen_array(char **array);
+char			**ft_split(char *s, char c);
+char			*ft_substr(char *s, int start, int len);
+void			*ft_memset(void *s, int c, size_t n);
+char			*ft_strtrim(char *s1, char *set);
+int				ft_strncmp(char *s1, char *s2, size_t n);
 
 //utils_rgb
-int	ft_isdigit(int c);
-int free_array(char **array, int s);
-void	free_array_simple(char **array);
-int	ft_atoi(char *str);
+int				ft_isdigit(int c);
+int				free_array(char **array, int s);
+void			free_array_simple(char **array);
+int				ft_atoi(char *str);
 
 //handle key
-int		wich_input_press(int keysim, t_game *data);
-int		wich_key_release(int keysim, t_game * data);
-void	move_forward(t_game *g);
-int		game_loop(t_game *data);
-void	move_backward(t_game *g);
-void	move_right(t_game *g);
-void	move_left(t_game *g);
-void rotate_left(t_game *g);
-void rotate_right(t_game *g);
+int				wich_input_press(int keysim, t_game *data);
+int				wich_key_release(int keysim, t_game *data);
+void			move_forward(t_game *g);
+int				game_loop(t_game *data);
+void			move_backward(t_game *g);
+void			move_right(t_game *g);
+void			move_left(t_game *g);
+void			rotate_left(t_game *g);
+void			rotate_right(t_game *g);
 
 //draw
 void			my_pixel_put(t_texture *tx, int x, int y, int color);
@@ -178,57 +171,59 @@ unsigned int	get_texture_pixel(t_texture *tx, int x, int y);
 void			load_texture(t_game *g, t_texture *tx, char *path);
 
 //main
-void	initialize_window(t_game *data);
+void			initialize_window(t_game *data);
 
 //raycast
-void	dda_loop(t_game *data, t_ray *r);
-void	init_param2(t_ray *r);
-void	init_param(t_game *data, t_ray *r);
-void	calcul_dist_wall(t_game *data, t_ray *r);
+void			dda_loop(t_game *data, t_ray *r);
+void			init_param2(t_ray *r);
+void			init_param(t_game *data, t_ray *r);
+void			calcul_dist_wall(t_game *data, t_ray *r);
 
 //init_pos
-void	get_dir_player(t_ray *r, t_game *data);
-void	get_plan_cam(t_ray *r, t_game *data);
-void	get_map_pos(t_ray *r);
-void	init_player(t_ray *r, t_game *data);
+void			get_dir_player(t_ray *r, t_game *data);
+void			get_plan_cam(t_ray *r, t_game *data);
+void			get_map_pos(t_ray *r);
+void			init_player(t_ray *r, t_game *data);
 
 //render
-void	calcul_texture_id(t_ray *r);
-void	calculate_texture_coords(t_game *data, t_ray *r);
-void	draw_wall_textured(t_game *data, t_ray *r);
-void	engine_3d(t_game *g, t_ray *r);
-int		render(t_game *g);
+void			calcul_texture_id(t_ray *r);
+void			calculate_texture_coords(t_game *data, t_ray *r);
+void			draw_wall_textured(t_game *data, t_ray *r);
+void			engine_3d(t_game *g, t_ray *r);
+int				render(t_game *g);
 
 //parse
-int exit_clean(t_game *data);
-void exit_clean_char(t_game *data);
+int				exit_clean(t_game *data);
+void			exit_clean_char(t_game *data);
 
 //parsing_naib
-int	init_map(t_game *map, char *name);
+int				init_map(t_game *map, char *name);
 
-void	free_map(t_game *map);
-void	free_all(t_game *map);
+void			free_map(t_game *map);
+void			free_all(t_game *map);
 
-int	parse_card_paths(t_game *map);
-int	parse_card_paths2(t_game *map);
-int	check_ifvalid(t_game *map);
-int	parsing(char *name, t_game *map);
+int				parse_card_paths(t_game *map);
+int				parse_card_paths2(t_game *map);
+int				check_ifvalid(t_game *map);
+int				parsing(char *name, t_game *map);
 
-int	parse_map_name(char *name);
+int				parse_map_name(char *name);
 
-int	map_count_line(char *file);
-void	free_tab(char **array);
-void	printtab(char *tableau[]);
-int	ft_tablen(char **tab);
+int				map_count_line(char *file);
+void			free_tab(char **array);
+void			printtab(char *tableau[]);
+int				ft_tablen(char **tab);
 
-int	parse_color_f2(char *str);
-int	parse_color_f3(char **tab);
-int	parse_color_f(t_game *map);
+int				parse_color_f2(char *str);
+int				parse_color_f3(char **tab);
+int				parse_color_f(t_game *map);
 
-int	parse_color_c2(char *str);
-int	parse_color_c3(char **tab);
-int	parse_color_c(t_game *map);
+int				parse_color_c2(char *str);
+int				parse_color_c3(char **tab);
+int				parse_color_c(t_game *map);
 
-int check_empty_map(t_game *data, char *file);
+int				check_empty_map(t_game *data, char *file);
+int				is_valid_position(t_game *g, double x, double y);
+void			get_exact_path(t_game *data);
 
 #endif

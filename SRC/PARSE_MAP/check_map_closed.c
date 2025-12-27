@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_closed.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 22:55:05 by abtouait          #+#    #+#             */
-/*   Updated: 2025/11/07 20:28:07 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:38:08 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ int	parse_player(t_game *data)
 	}
 	return (nbr_of_player);
 }
-int closed_line(char *line)
+
+int	closed_line(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] == ' ')
@@ -75,9 +76,10 @@ int closed_line(char *line)
 		return (FALSE);
 	return (TRUE);
 }
-int check_full_line(char *line)
+
+int	check_full_line(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] != '\0')
@@ -91,10 +93,10 @@ int check_full_line(char *line)
 	return (TRUE);
 }
 
-int check_closed_map(t_game *data)
+int	check_closed_map(t_game *data)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = strlen_array(data->map);

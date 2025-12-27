@@ -6,13 +6,13 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:23:03 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 12:22:46 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:40:28 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-int parse_rgb(t_game *data)
+int	parse_rgb(t_game *data)
 {
 	if (!data->ceiling || !data->floor)
 	{
@@ -30,10 +30,9 @@ int parse_rgb(t_game *data)
 		printf("ERROR COLOR\n");
 		return (FALSE);
 	}
-		
 }
 
-int medium_parse(t_game *data, int argc, char **argv)
+int	medium_parse(t_game *data, int argc, char **argv)
 {
 	if (smol_parse(argc, argv) == FALSE)
 	{
@@ -57,4 +56,3 @@ int medium_parse(t_game *data, int argc, char **argv)
 	}
 	return (TRUE);
 }
-

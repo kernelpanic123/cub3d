@@ -6,13 +6,13 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:36:04 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/24 06:11:13 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:01:18 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	int		start;
 	int		end;
@@ -34,7 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = ft_substr(s1, start, end - start + 1);
 	return (res);
 }
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	size_t	i;
 
