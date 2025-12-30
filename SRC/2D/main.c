@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 10:11:00 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/27 09:51:06 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/30 09:48:55 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char **argv)
 		return (1);
 	mlx_hook(g.mlx_win, 2, 1L << 0, wich_input_press, &g);
 	mlx_hook(g.mlx_win, 3, 1L << 1, wich_key_release, &g);
+	mlx_hook(g.mlx_win, 17, 0, exit_clean, &g);
 	mlx_loop_hook(g.mlx, render, &g);
 	mlx_loop(g.mlx);
 	return (0);

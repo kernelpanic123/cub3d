@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:05:32 by abtouait          #+#    #+#             */
-/*   Updated: 2025/12/26 11:43:52 by abtouait         ###   ########.fr       */
+/*   Updated: 2025/12/30 09:48:32 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	exit_clean(t_game *data)
 		mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	exit_clean_char(data);
+	exit(0);
 	return (0);
 }
 
