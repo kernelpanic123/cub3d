@@ -6,7 +6,7 @@
 /*   By: abtouait <abtouait@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 22:55:05 by abtouait          #+#    #+#             */
-/*   Updated: 2026/01/30 10:17:17 by abtouait         ###   ########.fr       */
+/*   Updated: 2026/01/30 15:14:51 by abtouait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	check_char_map(t_game *data)
 				data->map[i][j] != 'N' &&
 				data->map[i][j] != 'E' && data->map[i][j] != 'S' &&
 				data->map[i][j] != 'W' && data->map[i][j] != '\n')
-				{
-					printf("ERROR CHAR\n");
-					return (FALSE);
-				}
+			{
+				printf("ERROR CHAR\n");
+				return (FALSE);
+			}
 			j++;
 		}
 		j = 0;
