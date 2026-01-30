@@ -1,0 +1,11 @@
+SO ./SRC/img/acacia.xpm
+WE ./SRC/img/birch.xpm
+EA ./SRC/img/bois.xpm
+NO ./SRC/img/dark_wood.xpm
+
+C 225,30,0
+
+11111
+10N01
+10001
+11111
